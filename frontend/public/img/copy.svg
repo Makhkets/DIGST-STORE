@@ -1,0 +1,6 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.2">
+<path d="M18 14H8C6.896 14 6 13.105 6 12V2C6 0.895 6.896 0 8 0H18C19.104 0 20 0.895 20 2V12C20 13.105 19.105 14 18 14Z" fill="white"/>
+<path d="M2 18H12V15H14V18C14 19.102 13.103 20 12 20H2C0.897 20 0 19.102 0 18V8C0 6.898 0.897 6 2 6H5V8H2V18Z" fill="white"/>
+</g>
+</svg>

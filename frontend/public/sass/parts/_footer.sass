@@ -1,0 +1,39 @@
+@import "vars"
+
+
+.footer 
+	padding-top: 24px
+	margin-top: auto
+	&-list 
+		display: flex
+		align-items: center
+		margin-left: auto
+		a 
+			color: $gray 
+			&:hover
+				color: $blue 
+		li 
+			+ 
+				li 
+					margin-left: 16px
+	&-row 
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+
+.payments
+	display: flex
+	align-items: center
+	margin-left: 16px
+	&-item 
+		+ 
+			.payments-item
+				margin-left: 16px
+		img 
+			display: block
+			width: 48px
+
+
+
+

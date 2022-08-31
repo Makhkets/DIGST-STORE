@@ -1,0 +1,269 @@
+@import "vars"
+
+body.hidden 
+	overflow: hidden
+
+.overlay 
+	position: fixed
+	width: 100%
+	height: 100%
+	left: 0
+	top: 0
+	position: fixed
+	background-color: rgba(#171926, .9)
+	@include trans 
+	opacity: 0
+	visibility: hidden
+	z-index: 3199
+	&.open 
+		opacity: 1
+		visibility: visible
+
+
+.logo 
+	flex-shrink: 0
+	img 
+		display: block
+
+.kassa 
+	img 
+		display: block
+		margin: 0 auto
+		width: 48px
+
+
+
+.lang 
+	margin-bottom: 12px
+	display: inline-block
+	img 
+		display: block
+		margin: 0 auto
+		width: 24px
+
+.drop 
+	position: relative
+	&-toggler 
+		position: relative
+		z-index: 50
+		cursor: pointer
+		&.active 
+			opacity: .5
+	&-body 
+		background: #202232
+		border-radius: 8px
+		position: absolute
+		padding: 6px 12px
+		left: 50%
+		transform: translateX(-50%)
+		bottom: -6px
+		z-index: 49
+		width: 48px
+		padding-bottom: 30px
+		display: none
+		&.active 
+			display: block
+		&__item 
+			cursor: pointer
+			+ 
+				.drop-body__item
+					margin-top: 6px
+			&.active 
+				display: none
+				&:first-child 
+					+
+						.drop-body__item
+							margin-top: 0
+			img 
+				display: block
+				width: 24px
+				height: 16px
+				border-radius: 2px
+
+.currency 
+	margin-bottom: 12px
+	&-toggler
+		background: #2E2C47
+		border-radius: 6px
+		text-align: center
+		font-size: 10px
+		line-height: 1.15
+		color: #fff 
+		@include trans 
+		font-weight: 700
+		display: inline-block
+		width: 28px
+		height: 20px
+		line-height: 18px
+		z-index: 52
+		&:hover 
+			background-color: lighten(#2E2C47, 4%)
+	&-body 
+		z-index: 51
+		padding: 6px 10px
+		padding-bottom: 32px
+		&__item 
+			background: #2E2C47
+			border-radius: 6px
+			font-size: 10px
+			font-weight: 700
+			width: 28px
+			height: 20px
+			line-height: 18px
+			text-align: center
+			@include trans 
+			text-align: center
+			&:hover 
+				background-color: lighten(#2E2C47, 4%)
+
+.header
+	padding: 6px 24px
+	background: #090F15
+	position: sticky 
+	top: 0
+	z-index: 1200
+	.hamburger 
+		display: none
+	&--404 
+		background: #1C1F2E
+		padding: 20px 24px
+	&-info 
+		margin-left: 16px
+		border: 2px solid rgba(255, 255, 255, 0.1)
+		border-radius: 8px
+		display: flex
+		&__link 
+			display: flex
+			align-items: center
+			justify-content: center
+			padding: 12px 16px
+			border-left: 2px solid rgba(255, 255, 255, 0.1)
+			white-space: nowrap 
+			cursor: pointer
+			transition: background-color .35s ease 
+			&:hover 
+				background: rgba(255, 255, 255, 0.05)
+
+			&:first-child 
+				display: none
+				border-left: none
+			&:nth-child(2)
+				border-left: none
+				border-radius: 6px 0 0 6px
+			&--short 
+				width: 47px
+				flex-shrink: 0
+				padding-left: 5px
+				padding-right: 5px
+			svg 
+				display: block
+			>
+				span 
+					margin-left: 8px
+					font-weight: 600
+					@include trans 
+	&-nav 
+		display: flex
+		align-items: center
+		margin-left: 16px
+		padding: 10px 0
+		.btn 
+			white-space: nowrap 
+		&__buttons
+			display: flex
+			align-items: center
+			a 
+				+ 
+					a 
+						margin-left: 16px
+	.logo 
+		margin-right: 24px
+	&-row 
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+.log 
+	padding: 3px 5px
+	position: relative
+	&::before 
+		@extend %before 
+		width: calc(100% + 4px)
+		height: calc(100% + 4px)
+		border: 2px solid $blue 
+		border-radius: 8px
+		top: -2px
+		left: -2px
+	>
+		img 
+			width: 38px
+			height: 38px
+			border-radius: 6px
+			display: block
+			flex-shrink: 0
+	&-menu 
+		background: #202133
+		border-radius: 15px
+		position: absolute
+		right: 0
+		z-index: 100
+		top: calc(100% + 10px)
+		width: 189px
+		opacity: 0
+		visibility: hidden
+		&.open 
+			opacity: 1
+			visibility: visible
+		&::before 
+			@extend %before 
+			width: 0
+			height: 0
+			border-style: solid
+			border-width: 0 5px 5px 5px
+			right: 16px
+			top: -5px
+			border-color: transparent transparent #202133  transparent
+		&__header 
+			padding: 11px 16px
+			border-bottom: 1px solid #28293B
+		&__body 
+			padding: 11px 16px
+			border-bottom: 1px solid #28293B
+			a 
+				display: block
+				+ 
+					a 
+						margin-top: 20px
+		&__footer 
+			padding: 11px 16px
+			a 
+				color: #FF7A7A
+				&:hover 
+					color: darken(#FF7A7A, 12%)
+		&__link 
+			color: #A6AAC3
+			font-size: 12px
+			font-weight: 500
+			&:hover 
+				color: #fff 
+
+
+.main 
+	&-list 
+		display: flex
+		align-items: center
+		li 
+			+ 
+				li 
+					margin-left: 25px
+		a 
+			display: inline-block
+			position: relative
+
+.hamburger 
+	cursor: pointer
+	
+
+
+
+

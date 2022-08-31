@@ -1,0 +1,540 @@
+@import "vars"
+
+.ml-auto 
+	margin-left: auto
+
+.align-items-end
+	align-items: flex-end !important 
+
+.hide 
+	display: none
+
+.js 
+	&-hidden 
+		display: none
+		margin-top: 28px
+	&-show 
+		&-next 
+			cursor: pointer
+
+.rel 
+	position: relative
+
+.h100 
+	height: 100%
+
+.block 
+	background: #171926
+	border-radius: 12px
+	margin-bottom: 16px
+	&:last-child 
+		margin-bottom: 0
+	&--16 
+		padding: 16px
+	&--32 
+		padding: 32px
+	&--24 
+		padding: 24px 24px
+
+.pt-0
+	padding-top: 0 !important 
+
+.alert 
+	display: flex
+	align-items: center
+	position: relative
+	&::before 
+		@extend %before 
+		height: 100%
+		width: 128px
+		background: url('../img/alert-red-bg.png') no-repeat left top
+		left: 0
+		top: 0
+		pointer-events: none 
+	&-row 
+		display: flex
+		align-items: center
+	&-head 
+		font-size: 18px
+		line-height: 1.222
+		flex-shrink: 0
+		font-weight: 700
+		margin-right: 40px
+	&-text 
+		font-weight: 500
+		color: #A6AAC3
+	&--red 
+		.alert 
+			&-head 
+				color: #FF7A7A
+
+.js-tooltip 
+	position: relative
+	&:hover 
+		.tooltip 
+			opacity: 1
+			visibility: visible
+
+.pay 
+	&-row 
+		display: flex
+		flex-wrap: wrap
+		margin: 0 -4px -8px
+	&-item 
+		padding: 0 4px
+		width: 25%
+		margin-bottom: 8px
+		&__label 
+			position: absolute
+			background: #0B1020
+			border-radius: 4px
+			top: 8px
+			right: 8px
+			z-index: 2
+			font-size: 10px
+			line-height: 1
+			font-weight: 700
+			color: #fff 
+			padding: 3px 5px
+		input[type="radio"]
+			display: none
+			+ 
+				label 
+					background: #262839
+					border-radius: 8px
+					height: 80px
+					display: flex
+					align-items: center
+					justify-content: center
+					position: relative
+					cursor: pointer
+					border: 2px solid transparent 
+					@include trans 
+					&:hover 
+						background-color: lighten(#262839, 4%) 
+			&:checked 
+				+ 
+					label 
+						border-color: $blue
+						background-color: lighten(#262839, 4%) 
+
+.blue 
+	&-link 
+		color: #5EB0FF
+		font-size: 14px
+		line-height: 1.15
+		border-bottom: 1px solid transparent 
+		font-weight: 700
+		&:hover 
+			border-bottom-color: #5EB0FF
+
+.tooltip 
+	border-radius: 8px
+	font-size: 12px
+	font-weight: 700
+	padding: 8px 12px
+	position: absolute
+	left: 50%
+	transform: translateX(-50%)
+	top: -43px
+	@include trans 
+	opacity: 0
+	visibility: hidden
+	white-space: nowrap 
+	z-index: 99
+	&-click 
+		position: relative
+	&.active 
+		opacity: 1
+		visibility: visible
+	&::before 
+		@extend %before 
+		width: 0
+		height: 0
+		border-style: solid
+		border-width: 5px 5px 0 5px
+		left: 50%
+		transform: translateX(-50%)
+		bottom: -5px
+	&--blue 
+		color: #fff 
+		background: rgba(#090f15, 0.95)
+		&::before 
+			border-color: rgba(#090f15, 0.95) transparent transparent transparent
+	&--red 
+		background: rgba(255, 92, 92, .95)
+		color: #fff 
+		&::before 
+			border-color: rgba(255, 92, 92, .95) transparent transparent transparent
+	&--black2 
+		background: #000
+		color: #fff 
+		&::before 
+			border-color: #000 transparent transparent transparent
+	&-head 
+		font-size: 12px
+		font-weight: 700
+		margin-bottom: 4px
+		line-height: 1.2
+	&-text 
+		color: #6A6E8C
+		font-size: 10px
+		font-weight: 500
+		white-space: normal
+	&-row 
+		display: flex
+		align-items: center
+		span 
+			margin-right: 11px
+	&--blackred 
+		background: rgba(32, 34, 50, 0.98)
+		color: #FF7474
+		&::before 
+			border-color: transparent transparent rgba(32, 34, 50, 0.98) transparent
+	&--black 
+		background: rgba(32, 34, 50, 0.98)
+		&::before 
+			border-color: rgba(32, 34, 50, 0.98) transparent transparent transparent
+	&--bottom
+		top: 28px
+		&::before 
+			bottom: auto
+			top: -5px
+			border-width: 0 5px 5px 5px
+	&--right 
+		left: auto
+		transform: none 
+		right: -10px
+		&::before 
+			left: auto
+			transform: none 
+			right: 15px
+	&-smiles 
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		margin: 0 -5px -10px
+		&__scroll 
+			max-height: 100px
+			.mCSB_scrollTools 
+				.mCSB_draggerRail
+					border-radius: 99px
+					background-color: rgba(#fff, .05)
+					width: 2px
+				.mCSB_dragger
+					.mCSB_dragger_bar
+						border-radius: 99px
+						background-color: #474B5F !important 
+						width: 2px !important 
+			.mCSB_inside>.mCSB_container
+				margin-right: 12px	
+		&__item 
+			padding: 0 5px
+			margin-bottom: 10px
+		img 
+			max-width: 17px
+			display: block
+			margin: 0 auto
+	&-sml 
+		width: 230px
+		bottom: calc(100% + 40px)
+		top: auto 
+		z-index: 20
+		padding-right: 0
+
+.mCSB_scrollTools 
+	.mCSB_draggerRail
+		border-radius: 99px
+		background-color: rgba(#fff, .05)
+		width: 4px
+	.mCSB_dragger
+		.mCSB_dragger_bar
+			border-radius: 99px
+			background-color: #474B5F !important 
+.mCSB_inside>.mCSB_container
+	margin-right: 25px	
+
+.fixed 
+	&-menu 
+		display: none 
+
+.hide
+	&-xs 
+		display: none
+
+.w100
+	width: 100%
+
+.js-chat 
+	position: relative
+
+.chat 
+	position: absolute
+	right: 0
+	top: calc(100% + 10px)
+	width: 272px
+	background-color: rgba(32, 34, 50, 0.98)
+	border-radius: 12px
+	display: none
+	cursor: auto
+	@include trans 
+	z-index: 123123
+	&::before 
+		@extend %before 
+		width: 0
+		height: 0
+		border-style: solid
+		border-width: 0 5px 5px 5px
+		right: 16px
+		top: -5px
+		border-color: transparent transparent #202133  transparent
+	&.open 
+		display: block
+	&-header 
+		padding: 11px 16px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		border-bottom: 1px solid rgba(41, 43, 61, 0.98)
+		&__text 
+			color: #A6AAC3
+			font-size: 12px
+			font-weight: 500
+			border-bottom: 1px solid transparent 
+			&:hover 
+				color: $blue 
+				border-bottom-color: $blue 
+		&__nav 
+			display: flex
+			align-items: center
+			&-item 
+				display: flex
+				align-items: center
+				+
+					.chat-header__nav-item
+						margin-left: 8px
+				span 
+					margin-left: 5px
+					font-size: 12px
+	&-body 
+		&__box 
+			padding: 16px 16px
+			max-height: 264px
+			overflow-x: hidden
+			overflow-y: auto
+			scrollbar-color: #474B5F rgba(#fff, .05)
+			padding-right: 12px
+			scrollbar-width: thin
+			&::-webkit-scrollbar-thumb
+				border-radius: 99px
+				background: #474B5F
+			&::-webkit-scrollbar
+				width: 4px
+				background-color: rgba(#fff, .05)
+				border-radius: 99px
+		&__item 
+			display: flex
+			align-items: center
+			margin-bottom: 16px
+			&:last-child
+				margin-bottom: 0
+		&__img 
+			flex-shrink: 0
+			margin-right: 8px
+			img 
+				width: 40px
+				height: 40px
+				border-radius: 50%
+				display: block
+		&__content 
+			width: calc(100% - 48px)
+		&__header 
+			display: flex
+			align-items: center
+		&__date 
+			color: $gray 
+			font-weight: 700
+		&__name 
+			font-weight: 700
+			margin-right: 4px
+		&__answer 
+			color: #ADB1CF
+			font-size: 12px
+			text-overflow: ellipsis
+			overflow: hidden
+			white-space: nowrap
+			width: 100%
+
+.show 
+	&-search 
+		border-radius: 12px 12px 0 0 !important 
+
+.search 
+	width: 100%
+	max-width: 496px
+	margin-right: auto
+	position: relative
+	.form 
+		&__row 
+			margin: 0
+	&-toggler 
+		display: none
+	input 
+		background: #171926
+		border-radius: 8px
+		&::placeholder 
+			color: #6A6E8C
+	&-body 
+		position: absolute
+		top: 100%
+		left: 0
+		width: 100%
+		z-index: 99
+		background: #1C1F2E
+		border-radius: 0px 0px 8px 8px
+		&__box 
+			padding: 16px 16px
+			display: flex
+			border-top: 1px solid rgba(#6A6E8C , 1)
+			border-top: 1px solid rgba(#6A6E8C ,.5)
+		&__wrap 
+			flex-grow: 1
+		&__row 
+			display: block
+			margin-bottom: 25px
+			&:hover 
+				.search 
+					&-body 
+						&__head 
+							color: $blue 
+			&:last-child 
+				margin-bottom: 0
+		&__letter 
+			flex-shrink: 0
+			width: 32px
+			line-height: 1.14
+			font-size: 14px
+			color: #A6AAC3
+		&__head 
+			font-size: 14px
+			font-weight: 700
+			margin-bottom: 16px
+			line-height: 1.14
+			@include trans 
+		&__result 
+			display: flex
+			align-items: center
+			font-size: 14px
+			line-height: 1.14
+			&-head 
+				font-weight: 500
+				color: #A6AAC3
+				margin-right: 4px
+		&__content 
+			display: flex
+			justify-content: space-between
+			
+		&__img 
+			max-width: 104px
+			img 
+				display: block
+				border-radius: 8px
+
+.breadcrumb
+	padding-left: 0
+	margin-top: 0
+	margin-bottom: 16px
+	li 
+		display: inline-block
+		color: #696C82
+		font-size: 14px
+		&::before 
+			content: '/'
+			margin-right: 4px
+		&:first-child
+			&::before 
+				display: none
+	a 
+		&:hover 
+			text-decoration: underline
+
+.socials 
+	li 
+		+
+			li 
+				margin-top: 32px
+		img, svg 
+			display: block
+			margin: 0 auto
+		a 
+			&:hover 
+				path 
+					fill: $blue 
+
+.slick 
+	&-slide 
+		outline: none 
+
+.tl
+	&-right 
+		text-align: right
+	&-center 
+		text-align: center
+		> 
+			.form 
+				&__checkbox 
+					display: inline-block
+
+.linked 
+	position: relative
+	display: inline-block
+	&::before 
+		@extend %before 
+		height: 1px
+		width: 100%
+		background-color: #333
+		transform: scale(0)
+		@include trans 
+		bottom: 0
+		left: 0
+	&:hover 
+		&::before 
+			transform: scale(1)
+	&-r 
+		&::before 
+			transform: scale(1)
+		&:hover 
+			&::before 
+				transform: scale(0)
+	&--blue 
+		&::before 
+			background-color: #333
+
+@keyframes rotating
+	from 
+		transform: rotate(0deg)
+	to 
+		transform: rotate(360deg)
+
+
+
+.mfp-zoom-out 
+	.mfp-with-anim
+		opacity: 0
+		transition: all 0.3s ease-in-out
+		transform: scale(1.3)
+	&.mfp-bg
+		opacity: 0
+		transition: all 0.3s ease-out
+	&.mfp-ready
+		.mfp-with-anim
+			opacity: 1
+			transform: scale(1)
+	&.mfp-bg 
+		opacity: 0.8
+	&.mfp-removing
+		.mfp-with-anim
+			transform: scale(1.3)
+			opacity: 0
+		&.mfp-bg
+			opacity: 0

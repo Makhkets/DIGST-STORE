@@ -1,0 +1,98 @@
+@font-face { 
+    font-family: "MuseoSansBold";
+    src: url(../fonts/MuseoSansBold/MuseoSansBold.eot?) format("eot"), /* IE8+, знак ? позволяет обойти баг в обработчике значения src */
+         url(../fonts/MuseoSansBold/MuseoSansBold.woff) format("woff"), /* все современные браузеры, IE9+ */
+         url(../fonts/MuseoSansBold/MuseoSansBold.ttf) format("truetype"); /* все современные браузеры */
+}
+
+@font-face { 
+    font-family: "MuseoSansLight";
+    src: url(../fonts/MuseoSansLight/MuseoSansLight.eot?) format("eot"), /* IE8+, знак ? позволяет обойти баг в обработчике значения src */
+         url(../fonts/MuseoSansLight/MuseoSansLight.woff) format("woff"), /* все современные браузеры, IE9+ */
+         url(../fonts/MuseoSansLight/MuseoSansLight.ttf) format("truetype"); /* все современные браузеры */
+}
+
+body {
+	margin: 0;
+	padding: 15px 30px;
+	height: 100%;
+	background-image: linear-gradient(to right, #4DBD67, #27B08B);
+	font-family: "MuseoSansLight";
+	font-size: 16px;
+}
+
+h1 {
+	font-size: 30px;
+	font-family: "MuseoSansBold";
+	margin-bottom: 30px;
+	color: #fff;
+}
+
+ol, li {
+	list-style-type: decimal;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font-family: "MuseoSansBold";
+}
+
+ol li {
+	margin-bottom: 15px;
+	padding-left: 18px;
+	position: relative;
+}
+
+ol a {
+	color: #ffd174;
+	font-size: 18px;
+	text-decoration: none;
+	font-family: "MuseoSansLight";
+	position: relative;
+}
+
+ol a::before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	height: 1px;
+	background-color: #ffd174;
+	transform: scale(0);
+	width: 100%;
+	transition: all .4s linear;
+}
+
+ol a:hover::before {
+	transform: scale(1);
+}
+
+ol {
+	margin-bottom: 30px;
+	padding-left: 15px;
+}
+
+.head {
+	color: #fff;
+	font-size: 24px;
+	margin-bottom: 15px;
+	font-family: "MuseoSansBold";
+	margin-bottom: 30px;
+	text-decoration: none;
+	display: inline-block;
+	color: #ffd174;
+	position: relative;
+}
+
+a.head::before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	height: 1px;
+	background-color: #ffd174;
+	transform: scale(0);
+	width: 100%;
+	transition: all .4s linear;
+}
+
+a.head:hover::before {
+	transform: scale(1);
+}

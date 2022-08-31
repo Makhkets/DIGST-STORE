@@ -1,0 +1,96 @@
+@import "vars"
+
+html, body
+	height: 100%
+
+p 
+	margin-top: 0
+	margin-bottom: 15px
+
+path 
+	@include trans 
+
+body
+	font-size: 14px
+	line-height: 1.4
+	min-width: 320px
+	position: relative
+	font-family: $reg
+	color: #fff 
+	margin: 0
+	background-color: #0C131B
+	&::before 
+		@extend %before 
+		width: 100%
+		height: 100%
+		background-color: rgba(23,25,38,.9)
+		left: 0
+		top: 0
+		z-index: 1201
+		opacity: 0
+		visibility: hidden
+		@include trans 
+	&.sidebar-overlay 
+		&::before 
+			opacity: 1
+			visibility: visible
+
+::placeholder
+	color: #666
+	opacity: 1
+
+::selection 
+  background: $blue 
+  text-shadow: none
+
+article,aside,figcaption,figure,footer,header,nav,section
+	display: block
+
+.image
+	img
+		display: block
+		width: 100%
+
+.clearfix:after
+	clear: both
+	content: ""
+	display: table
+
+ul, li
+	list-style: none
+	margin: 0
+	padding: 0
+
+input,select,button,textarea 
+	outline: none
+	border: none
+	margin: 0
+	padding: 0
+
+*,*:before,*:after
+	box-sizing: border-box
+
+h1,h2,h3,h4,h5,h6 
+	font-weight: normal
+	margin: 0
+
+a
+	color: inherit
+	transition: all 0.3s linear
+	text-decoration: none
+	outline: none
+
+img
+	max-width: 100%
+
+button
+	cursor: pointer
+	background: none
+
+select
+	appearance: none
+	&::-ms-expand
+		display: none
+
+textarea 
+	resize: none

@@ -1,0 +1,552 @@
+@import "vars"
+
+.clear 
+	&-input 
+		cursor: pointer
+		&:hover 
+			path 
+				fill: $blue 
+
+
+
+.form
+	.error 
+		color: red 
+		font-size: 12px
+		display: inline-block
+		margin-top: 4px
+	.success 
+		color: green 
+		font-size: 12px
+		display: inline-block
+		margin-top: 4px
+	.g-recaptcha
+		transform: scale(0.7)
+		transform-origin: center center 
+	&__heads 
+		&-head 
+			font-size: 12px
+			font-weight: 600
+			line-height: 1.3
+			margin-bottom: 4px
+		&-text 
+			font-size: 12px
+			font-weight: 600
+			color: $gray 
+	&__flex 
+		display: flex
+		flex-wrap: wrap
+		margin: 0 -8px
+		&-item 
+			width: 50%
+			padding: 0 8px
+			&--48 
+				width: 48%
+			&--52 
+				width: 52%
+		&-item 
+			&--33
+				width: 33.3333%
+	&__pay 
+		display: flex
+		align-items: center
+		.btn 
+			margin-left: 16px
+			max-width: 144px !important 
+			svg 
+				flex-shrink: 0
+			span 
+				margin-right: 18px
+		&--code 
+			.btn 
+				max-width: 184px !important 
+				width: 100%
+				padding-left: 10px
+				padding-right: 10px
+				text-align: center
+				span 
+					margin: 0
+	&__label 
+		display: inline-block
+		color: #A6AAC3
+		font-size: 14px
+		line-height: 1
+		margin-bottom: 10px
+	&__nav 
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&__input, &__textarea
+		display: block
+		width: 100%
+		font-family: $reg
+		font-size: 14px
+		color: #fff 
+		font-weight: 500
+		@include trans 
+		-webkit-appearance: none 
+		border-radius: 12px
+		background: #171926
+		padding: 13px 16px
+		border: 2px solid transparent 
+		&.success 
+			border: 2px solid rgba(green, .7) 
+		&.error 
+			border: 2px solid rgba(red, .7)
+		&::placeholder 
+			font-size: 14px
+			color: rgba(#A6AAC3, .5)
+			font-family: $reg 	
+			font-weight: 500
+		&:hover
+			background: lighten(#171926, 2%)
+			border-color: rgba($blue, .5)
+		&:focus 
+			background: lighten(#171926, 2%)
+			border-color: $blue 
+		&--left 
+			padding-left: 48px
+		&--right 
+			padding-right: 48px
+		&--light 
+			background: #262839
+			&:hover, &:focus 
+				background: lighten(#262839, 4%)
+		&--border 
+			border: 2px solid rgba(255, 255, 255, 0.1)
+			&::placeholder 
+				color: #ADB1CF
+	&__icon 
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		display: flex
+		align-items: center
+		svg 
+			+ 
+				svg 
+					margin-left: 16px
+		&--left 
+			left: 16px
+		&--right 
+			right: 16px
+		svg 
+			display: block
+		&-item 
+			cursor: pointer
+			input[type="file"]
+				display: none
+				+ 
+					label 
+						cursor: pointer
+			&:hover 
+				path 
+					fill: $blue 
+			+ 
+				.form__icon-item
+					margin-left: 16px
+	&__textarea
+		min-height: 140px
+	&__row 
+		margin-bottom: 15px
+		position: relative
+		&--direct 
+			display: flex
+			flex-direction: column
+			> 
+				* 
+					margin-top: auto
+					margin-bottom: 5px !important
+		&:last-child 
+			margin-bottom: 0
+	&__radios 
+		display: flex
+		align-items: center
+	&__radio 
+		+ 
+			.form__radio
+				margin-left: 16px
+		input[type="radio"]
+			display: none
+			+ 
+				label 
+					position: relative
+					cursor: pointer
+					display: block
+					padding-left: 20px
+					color: #A6AAC3
+					font-family: $reg 
+					font-size: 14px
+					font-weight: 500
+					&::before 
+						@extend %before
+						width: 14px
+						height: 14px
+						border-radius: 50%
+						border: 1px solid rgba(#fff, .25)
+						left: 0
+						top: 50%
+						transform: translateY(-50%)
+			&:checked 
+				+ 
+					label 
+						color: #ffff
+						&::before
+							border-color: $blue 
+						&::after 
+							@extend %before
+							width: 8px
+							height: 8px
+							border-radius: 50%
+							background-color: $blue 
+							left: 3px
+							top: 50%
+							transform: translateY(-50%)
+	&__checkbox 
+		input[type="checkbox"]
+			display: none
+			+ 
+				label 
+					position: relative
+					cursor: pointer
+					display: block
+					padding-left: 30px
+					a 
+						color: #5EB0FF
+						border-bottom: 1px solid transparent 
+						&:hover 
+							border-bottom-color: #5EB0FF
+					&.empty 
+						padding: 0
+						width: 18px
+						height: 18px
+					&::before 
+						@extend %before 
+						width: 18px
+						height: 18px
+						top: 50%
+						transform: translateY(-50%)
+						left: 0
+						background: #171926 
+						border-radius: 6px
+			&:checked 
+				+ 
+					label 
+						&::after 
+							@extend %before 
+							width: 12px
+							height: 9px
+							left: 3px
+							top: 50%
+							transform: translateY(-50%)
+							background: url('../img/checkbox.svg') no-repeat center center 
+		&--light 
+			input[type="checkbox"]
+				display: none
+				+ 
+					label 
+						font-size: 12px
+						color: #A6AAC3
+						font-weight: 500
+						&::before 
+							background: #262839
+		&--right 
+			input[type="checkbox"]
+				+ 
+					label 
+						color: #A6AAC3
+						font-weight: 500
+						padding-right: 30px
+						padding-left: 0
+						&::before 
+							left: auto
+							right: 0
+				&:checked 
+					+ 
+						label
+							&::after 
+								left: auto
+								right: 3px
+	&__select 
+		+ 
+			.select2
+				.select2-selection--single
+					border-radius: 12px
+					.select2-selection__rendered
+						.select2-selection__placeholder
+							color: rgba(#A6AAC3, .5)
+					.select2-selection__arrow
+						&::before 
+							background: url(../img/select-arrow-dark.svg) no-repeat center center
+		&--filter 
+			+ 
+				.select2
+					.selection
+						.select2-selection__rendered
+							padding: 4.5px 16px !important 
+							.select2-selection__placeholder
+								color: #A6AAC3
+								font-weight: 400
+
+.js-srch, .js-select, .js-small
+	visibility: hidden
+
+.select2-selection__choice[title=""]
+	display: none !important 
+
+.js-srch
+	+
+		.select2 
+			.select2-selection--multiple
+				border: 2px solid transparent 
+			&-container 
+				&--open 
+					.select2
+						&-selection
+							&--multiple 
+								&::before
+									transform: translateY(-50%) rotate(180deg)	!important
+			.select2
+				&-selection
+					&--multiple 	
+						&::before 
+							@extend %before 
+							width: 12px
+							height: 8px
+							background: url('../img/select-arrow.svg') no-repeat center center 
+							background-size: contain
+							top: 50%
+							right: 10px
+							@include trans 
+							transform: translateY(-50%)
+							opacity: .3
+						.select2
+							&-selection
+								&__choice 
+									margin-top: 0
+									background-color: #171926
+									margin-top: 0
+									margin-left: 0
+									margin-right: 4px
+									margin-bottom: 4px
+									font-size: 10px
+									color: $gray 
+									padding: 0
+									background: transparent 
+									&__remove 
+										color: #fff 
+										@include trans 
+								&__rendered
+									font-size: 14px
+									padding: 11px 16px !important 
+									display: flex
+									align-items: center
+									flex-wrap: wrap
+									.select2 
+										&-search 
+											display: block
+											border-radius: 0
+											background: transparent 
+											padding: 0
+											font-size: 14px
+											width: auto
+											.select2-search__field
+												border: none !important 
+												margin-top: 0 
+												width: auto !important 
+												display: block
+												font-size: 14px
+
+
+
+.srch 
+	.select2 
+
+		&-container 
+			&--open 
+				.select2-search__field
+					border-top: none
+		&-search 
+			display: block
+			background: transparent 
+			padding: 0
+			&__field 
+				background: #202232
+				border: none  !important 
+				padding: 8px 16px 
+				color: #fff 
+				border-top: 1px solid #474B5F !important 
+				border-bottom: 1px solid #474B5F !important
+				box-shadow: none 
+				border-radius: 0 
+		&-results 
+			&__option 
+				font-size: 12px
+				color: #A6AAC3
+				font-weight: 500
+				padding: 8px 16px
+				height: auto
+			&__message 
+				color: #A6AAC3
+				font-size: 10px
+				font-weight: 500
+
+.small 
+	.select2 
+		&-results 
+			&__option 
+				font-size: 12px
+				color: #A6AAC3
+				font-weight: 500
+				padding: 8px 16px
+				height: auto
+			&__message 
+				color: #A6AAC3
+				font-size: 10px
+				font-weight: 500
+
+.select2-container 
+	&.select2-container--default 
+		&.select2-container--open
+			z-index: 1000
+
+.select2-container 
+	&.select2-container--default 
+		&.select2-container--open
+			&.open
+				z-index: 1100
+
+.select2
+	display: block
+	&:hover 
+		.select2-selection--single, .select2-selection--multiple
+			border-color: $blue !important  
+	&.select2 
+		&-container 
+			width: 100% !important
+			&--open 
+				.select2-selection--single, .select2-selection--multiple	
+					border-color: $blue !important 
+	&-results
+		&__option 
+			padding: 14px 20px
+			@include trans 
+			font-weight: 600
+			font-size: 14px
+			color: $gray 
+			display: flex
+			align-items: center
+			background: transparent 
+			> 
+				span 
+					display: flex
+					align-items: center
+					img 
+						display: block
+					span 
+						+ 
+							span 
+								margin-left: 16px
+	&-dropdown 
+		border: 2px solid $blue 
+		border-radius: 12px
+		background: #262839
+		&--above
+			.select2-search__field
+				border-radius: 12px 12px 0 0
+			.select2-results__option
+				&:first-child 
+					border-radius: 12px 12px 0 0
+		&--below
+			.select2-results__option
+				&:last-child 
+					border-radius: 0 0 12px 12px
+	&-container 	
+		z-index: 1000
+		&.open 
+			.select2 
+				&-selection 
+					height: 48px !important 
+		&--open 
+			.select2 
+				&-selection 
+					&__arrow 
+						&::before 
+							transform: translate(-50%, -50%) rotate(180deg) !important 
+		&--default 
+			.select2
+				&-results>.select2-results__options
+					max-height: 220px
+				&-results__option--highlighted[aria-selected]
+					background: #2C3042
+					color: #fff 
+				&-results__option[aria-selected=true]
+					background: #2C3042
+					color: #fff
+				&-selection
+					@include trans 
+					&:hover 
+						border-color: $black 
+					&--multiple 
+						.select2-selection__rendered 
+							li
+								white-space: normal 
+								border: none 
+								border-radius: 12px
+								padding: 2px 4px
+								background-color: #0c131b
+								font-size: 12px
+					&--single, &--multiple
+						background: #262839
+						border: none 
+						border: 2px solid transparent 
+						display: flex
+						align-items: center
+						border-radius: 12px
+						.select2
+							&-selection
+								&__arrow
+									height: 100%
+									border-left: none 
+									width: 44px
+									b 
+										display: none
+									&::before 
+										@extend %before 
+										width: 12px
+										height: 8px
+										background: url('../img/select-arrow.svg') no-repeat center center 
+										background-size: contain
+										top: 50%
+										left: 50%
+										@include trans 
+										transform: translate(-50%, -50%)
+								&__rendered 
+									padding: 9px 20px
+									color: #fff
+									font-size: 14px
+									text-transform: none
+									font-weight: 600
+									> 
+										span 
+											display: flex
+											align-items: center
+											span 
+												+ 
+													span 
+														margin-left: 16px
+												img 
+													display: block
+								&__placeholder 
+									color: 
+
+		.select2-selection--single, .select2-selection--multiple
+		 	height: auto
+	&-selection 
+		outline: none !important
+		&__rendered
+			padding: 8px 0
+			padding-left: 20px
+			padding-right: 20px
+	&-search 
+		display: none
